@@ -55,7 +55,7 @@ TextStyle mTextStyle22({
   return TextStyle(
     color: txtColor,
     fontSize: 22,
-    fontWeight: FontWeight.normal,
+    fontWeight: fontWeight,
     fontFamily: "Mont",
   );
 }

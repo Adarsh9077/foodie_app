@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodie/ui_helper/utils.dart';
+import 'package:foodie/welcome/welcome_screen.dart';
 import 'package:foodie/widgets/constants.dart';
 
 void main() {
@@ -32,16 +33,14 @@ class MyApp extends StatelessWidget {
           fillColor: kPrimaryLightColor,
           prefixIconColor: kPrimaryColor,
           contentPadding: EdgeInsets.all(defaultPadding),
-          border: OutlineInputBorder(borderSide: BorderSide.none,borderRadius: BorderRadius.circular(30))
+          border: OutlineInputBorder(
+            borderSide: BorderSide.none,
+            borderRadius: BorderRadius.circular(30),
+          ),
         ),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Container(
-        height: double.infinity,
-        width: double.infinity,
-        decoration: BoxDecoration(color: kPrimaryColor),
-        child: Center(child: Text("Hello World", style: mTextStyle30(fontWeight: FontWeight.w700))),
-      ),
+      home: WelcomeScreen(),
     );
   }
 }

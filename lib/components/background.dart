@@ -15,12 +15,19 @@ class Background extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: Container(
+      body: SizedBox(
         width: double.infinity,
         height: MediaQuery.of(context).size.height,
         child: Stack(
           alignment: Alignment.center,
-          children: [Positioned(top: 0, left: 0, child: Image.asset(topImage,width: 120,))],
+          children: [
+            Positioned(
+              top: 0,
+              left: 0,
+              child: Image.asset(topImage, width: 250),
+            ),
+            SafeArea(child: child),
+          ],
         ),
       ),
     );
