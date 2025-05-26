@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodie/login/login_screen.dart';
 import 'package:foodie/ui_helper/utils.dart';
 import 'package:foodie/widgets/constants.dart';
 
@@ -12,7 +13,12 @@ class LoginAndSignupBtn extends StatelessWidget {
         Hero(
           tag: "login_btn",
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => LoginScreen()),
+              );
+            },
             child: Text(
               "Login".toUpperCase(),
               style: mTextStyle26(
