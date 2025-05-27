@@ -21,8 +21,8 @@ class LoginAndSignupBtn extends StatelessWidget {
             },
             child: Text(
               "Login".toUpperCase(),
-              style: mTextStyle26(
-                fontWeight: FontWeight.w700,
+              style: mTextStyle20(
+                fontWeight: FontWeight.w800,
                 txtColor: Colors.white,
               ),
             ),
@@ -39,8 +39,8 @@ class LoginAndSignupBtn extends StatelessWidget {
             onPressed: () {},
             child: Text(
               "Sign Up".toUpperCase(),
-              style: mTextStyle26(
-                fontWeight: FontWeight.w700,
+              style: mTextStyle20(
+                fontWeight: FontWeight.w800,
                 txtColor: Colors.black,
               ),
             ),

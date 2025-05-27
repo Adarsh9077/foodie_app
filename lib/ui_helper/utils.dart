@@ -38,12 +38,12 @@ TextStyle mTextStyle18({
 
 TextStyle mTextStyle20({
   Color txtColor = Colors.black,
-  FontWeight fontWight = FontWeight.normal,
+  FontWeight fontWeight = FontWeight.normal,
 }) {
   return TextStyle(
     color: txtColor,
     fontSize: 20,
-    fontWeight: fontWight,
+    fontWeight: fontWeight,
     fontFamily: "Mont",
   );
 }

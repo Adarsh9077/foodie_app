@@ -12,9 +12,9 @@ class LoginScreenTopImage extends StatelessWidget {
       children: [
         Text(
           "Login".toUpperCase(),
-          style: mTextStyle26(
+          style: mTextStyle28(
             txtColor: kPrimaryColor,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w800,
           ),
         ),
         Row(
