@@ -14,7 +14,8 @@ class Background extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
+      // resizeToAvoidBottomInset: false,
       body: SizedBox(
         width: double.infinity,
         height: MediaQuery.of(context).size.height,

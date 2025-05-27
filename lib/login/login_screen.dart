@@ -11,22 +11,20 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Background(
       child: SingleChildScrollView(
-        // scrollDirection: Axis.vertical,
-        child: MobileLoginScreen(),
-        // child: Responsive(
-        //   mobile: MobileLoginScreen(),
-        //   desktop: Row(
-        //     children: [
-        //       Expanded(child: LoginScreenTopImage()),
-        //       Expanded(
-        //         child: Row(
-        //           mainAxisAlignment: MainAxisAlignment.center,
-        //           children: [SizedBox(width: 450, child: LoginForm())],
-        //         ),
-        //       ),
-        //     ],
-        //   ),
-        // ),
+        child: Responsive(
+          mobile: MobileLoginScreen(),
+          desktop: Row(
+            children: [
+              Expanded(child: LoginScreenTopImage()),
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [SizedBox(width: 450, child: LoginForm())],
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -38,7 +36,6 @@ class MobileLoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      verticalDirection: VerticalDirection.down,
       children: [
         LoginScreenTopImage(),
         Row(
