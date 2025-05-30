@@ -43,4 +43,4 @@ class MyApp extends StatelessWidget {
       home: WelcomeScreen(),
     );
   }
-} //50:00 part 1
+}
