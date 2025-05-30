@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:foodie/components/already_have_an_account_acheck.dart';
+import 'package:foodie/login/login_screen.dart';
 import 'package:foodie/ui_helper/utils.dart';
 import 'package:foodie/widgets/constants.dart';
 
@@ -58,6 +60,13 @@ class SignUpForm extends StatelessWidget {
           ),
         ),
         SizedBox(height: defaultPadding),
+        AlreadyHaveAnAccountCheck(
+          login: false,
+          press: () {
+            Navigator.pop(context);
+          },
+        ),
+        // SizedBox(height: defaultPadding),
       ],
     );
   }

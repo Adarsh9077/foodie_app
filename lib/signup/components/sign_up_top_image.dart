@@ -7,7 +7,30 @@ class SignUpScreenTopImage extends StatelessWidget {
   const SignUpScreenTopImage({super.key});
 
   @override
-  Widget build(BuildContext context){
-    return Column(children: [Text("Sign up".toUpperCase(),style: mTextStyle28(fontWeight: FontWeight.w800,txtColor: kPrimaryColor),),SizedBox(height: defaultPadding,),Row(children: [Spacer(),SizedBox(width: 300,height: 300,child: SvgPicture.asset("asset/icons/Eating.svg"),),Spacer()],),SizedBox(height: defaultPadding,)],);
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          "Sign up".toUpperCase(),
+          style: mTextStyle28(
+            fontWeight: FontWeight.w800,
+            txtColor: kPrimaryColor,
+          ),
+        ),
+        SizedBox(height: defaultPadding),
+        Row(
+          children: [
+            Spacer(),
+            SizedBox(
+              width: 300,
+              height: 300,
+              child: SvgPicture.asset("assets/icons/Eating.svg"),
+            ),
+            Spacer(),
+          ],
+        ),
+        SizedBox(height: defaultPadding),
+      ],
+    );
   }
 }

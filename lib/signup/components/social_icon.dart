@@ -8,7 +8,19 @@ class SocialIcon extends StatelessWidget {
 
   const SocialIcon({super.key, this.iconSrc, this.press});
 
+  @override
   Widget build(BuildContext context) {
-    return GestureDetector(onTap: press as void Function()?,child: Container(margin: EdgeInsets.symmetric(horizontal: 10),padding: EdgeInsets.all(defaultPadding),decoration: BoxDecoration(border: Border.all(width: 2,color: kPrimaryLightColor),shape: BoxShape.circle),child: SvgPicture.asset(iconSrc!,height: 20,width: 20,),),);
+    return GestureDetector(
+      onTap: press as void Function()?,
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 10),
+        padding: EdgeInsets.all(defaultPadding),
+        decoration: BoxDecoration(
+          border: Border.all(width: 2, color: kPrimaryLightColor),
+          shape: BoxShape.circle,
+        ),
+        child: SvgPicture.asset(iconSrc!, height: 20, width: 20),
+      ),
+    );
   }
 }

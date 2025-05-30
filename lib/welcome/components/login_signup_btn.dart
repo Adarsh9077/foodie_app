@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodie/login/login_screen.dart';
+import 'package:foodie/signup/signup_screen.dart';
 import 'package:foodie/ui_helper/utils.dart';
 import 'package:foodie/widgets/constants.dart';
 
@@ -36,7 +37,12 @@ class LoginAndSignupBtn extends StatelessWidget {
               backgroundColor: kPrimaryLightColor,
               elevation: 0,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SignUpScreen()),
+              );
+            },
             child: Text(
               "Sign Up".toUpperCase(),
               style: mTextStyle20(

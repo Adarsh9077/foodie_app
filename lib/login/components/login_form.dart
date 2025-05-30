@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodie/components/already_have_an_account_acheck.dart';
+import 'package:foodie/signup/signup_screen.dart';
 import 'package:foodie/ui_helper/utils.dart';
 import 'package:foodie/welcome/welcome_screen.dart';
 import 'package:foodie/widgets/constants.dart';
@@ -64,11 +65,12 @@ class LoginForm extends StatelessWidget {
           ),
           SizedBox(height: defaultPadding),
           AlreadyHaveAnAccountCheck(
+            login: true,
             press: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => WelcomeScreen()),
-              // );
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SignUpScreen()),
+              );
             },
           ),
         ],
