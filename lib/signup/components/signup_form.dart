@@ -1,5 +1,3 @@
-// 51:36 part 1
-
 import 'package:flutter/material.dart';
 import 'package:foodie/ui_helper/utils.dart';
 import 'package:foodie/widgets/constants.dart';
