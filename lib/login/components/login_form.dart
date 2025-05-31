@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodie/components/already_have_an_account_acheck.dart';
+import 'package:foodie/home_page/home_page.dart';
 import 'package:foodie/signup/signup_screen.dart';
 import 'package:foodie/ui_helper/utils.dart';
 import 'package:foodie/welcome/welcome_screen.dart';
@@ -53,7 +54,12 @@ class LoginForm extends StatelessWidget {
           Hero(
             tag: "login_btn",
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomeScreen()),
+                );
+              },
               child: Text(
                 "Login".toUpperCase(),
                 style: mTextStyle20(
