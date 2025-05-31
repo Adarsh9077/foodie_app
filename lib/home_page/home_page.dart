@@ -10,11 +10,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final List<Widget> _pages = [MainHomePage()];
   int _currIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: _pages.elementAt(_currIndex),
       bottomNavigationBar: BottomAppBar(
         color: Colors.white,
         child: SizedBox(
@@ -73,6 +75,38 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+class MainHomePage extends StatelessWidget {
+  const MainHomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(
+        top: defaultPadding * 2.5,
+        left: defaultPadding * 1.25,
+        right: defaultPadding * 1.25,
+      ),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            Color.fromARGB(255, 83, 69, 164),
+            Color.fromARGB(125, 66, 53, 165),
+            Color.fromARGB(95, 75, 53, 165),
+            Color.fromARGB(95, 121, 112, 159),
+            Color.fromARGB(45, 70, 53, 165),
+            Color(0xff6F35A5).withAlpha(30),
+            Color(0xff6F35A5).withAlpha(25),
+            Color(0xff6F35A5).withAlpha(10),
+          ],
+          end: Alignment.bottomCenter,
+          begin: Alignment.topCenter,
+        ),
+      ),
+      child: SingleChildScrollView(),
+    );
+  }
+} //  22: 50 part 2
 
 class IconBottomBar extends StatelessWidget {
   final String text;
