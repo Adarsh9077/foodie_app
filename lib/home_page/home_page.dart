@@ -82,11 +82,7 @@ class MainHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(
-        top: defaultPadding * 2.5,
-        left: defaultPadding * 1.25,
-        right: defaultPadding * 1.25,
-      ),
+      padding: EdgeInsets.only(top: defaultPadding * 2.5),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
@@ -103,7 +99,7 @@ class MainHomePage extends StatelessWidget {
           begin: Alignment.topCenter,
         ),
       ),
-      child: SingleChildScrollView(),
+      child: SingleChildScrollView(child: Column(children: [])),
     );
   }
 } //  22: 50 part 2
@@ -140,3 +136,19 @@ class IconBottomBar extends StatelessWidget {
     );
   }
 }
+
+class TopBar extends StatelessWidget {
+  const TopBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.all(defaultPadding * 1.35),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [],
+      ),
+    );
+  }
+} // 24: 30
