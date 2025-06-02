@@ -10,7 +10,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final List<Widget> _pages = [MainHomePage()];
+  final List<Widget> _pages = [
+    MainHomePage(),
+    MainHomePage(),
+    MainHomePage(),
+    MainHomePage(),
+  ];
   int _currIndex = 0;
 
   @override
@@ -99,7 +104,9 @@ class MainHomePage extends StatelessWidget {
           begin: Alignment.topCenter,
         ),
       ),
-      child: SingleChildScrollView(child: Column(children: [])),
+      child: SingleChildScrollView(
+        child: Column(children: [Container(height: 820, child: TopBar())]),
+      ),
     );
   }
 } //  22: 50 part 2
@@ -142,13 +149,37 @@ class TopBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(defaultPadding * 1.35),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [],
+    return SizedBox(
+      child: Padding(
+        padding: EdgeInsets.all(defaultPadding * 1.35),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Find Your\nFavorite Food",
+              style: mTextStyle26(fontWeight: FontWeight.w700),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withAlpha(25),
+                    offset: Offset(12, 26),
+                    blurRadius: 50,
+                    spreadRadius: 0,
+                  ),
+                ],
+              ),
+              child: CircleAvatar(
+                radius: 25,
+                backgroundColor: Colors.white,
+                child: Icon(Icons.food_bank, size: 25, color: kPrimaryColor),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
-} // 24: 30
+} // 28: 30
