@@ -105,11 +105,11 @@ class MainHomePage extends StatelessWidget {
         ),
       ),
       child: SingleChildScrollView(
-        child: Column(children: [Container(height: 820, child: TopBar())]),
+        child: Column(children: [TopBar(), SearchInputBar(),PromoCard()]),
       ),
     );
   }
-} //  22: 50 part 2
+}
 
 class IconBottomBar extends StatelessWidget {
   final String text;
@@ -182,4 +182,61 @@ class TopBar extends StatelessWidget {
       ),
     );
   }
-} // 28: 30
+}
+
+class SearchInputBar extends StatelessWidget {
+  const SearchInputBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(
+        left: defaultPadding * 1.5,
+        right: defaultPadding * 1.5,
+        top: defaultPadding * 0.5,
+        bottom: defaultPadding * 0.5,
+      ),
+      child: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              offset: Offset(12, 26),
+              blurRadius: 50,
+              spreadRadius: 0,
+              color: Colors.grey.withValues(alpha: .25),
+            ),
+          ],
+        ),
+        child: TextField(
+          onChanged: (value) {},
+          decoration: InputDecoration(
+            prefixIcon: Icon(Icons.search),
+            filled: true,
+            fillColor: Colors.white,
+            hintText: "Search",
+            hintStyle: mTextStyle16(txtColor: Colors.grey),
+            contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white, width: 1.0),
+              borderRadius: BorderRadius.circular(15),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(width: 2, color: Colors.white),
+              borderRadius: BorderRadius.circular(15),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class PromoCard extends StatelessWidget {
+  const PromoCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(padding: EdgeInsets.all(25),child: Container(width: MediaQuery.of(context).size.width,height: 150,decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),gradient: LinearGradient(colors: [Color.fromARGB(255, 52, 120, 78),kPrimaryColor])),child: Stack(children: [Opacity(opacity: .5,child: Image.network("https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/BACKGROUND%202.png?alt=media&token=0d003860-ba2f-4782-a5ee-5d5684cdc244",fit: BoxFit.cover,),),Image.network("https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Image.png?alt=media&token=8256c357-cf86-4f76-8c4d-4322d1ebc06c"),Align(alignment: Alignment.topRight,child: Padding(padding: EdgeInsets.all(defaultPadding*1.5),child: Text("Want some\nicecream?",style: mTextStyle22(txtColor: Colors.white,fontWeight: FontWeight.bold),),),)],),),);
+  }
+} // 36:30
