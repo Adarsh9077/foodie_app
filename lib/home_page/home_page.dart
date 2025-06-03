@@ -26,7 +26,10 @@ class _HomeScreenState extends State<HomeScreen> {
         color: Colors.white,
         child: SizedBox(
           height: 16,
-          width: MediaQuery.of(context).size.width,
+          width: MediaQuery
+              .of(context)
+              .size
+              .width,
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 25),
             child: Row(
@@ -105,7 +108,8 @@ class MainHomePage extends StatelessWidget {
         ),
       ),
       child: SingleChildScrollView(
-        child: Column(children: [TopBar(), SearchInputBar(),PromoCard()]),
+        child: Column(
+            children: [TopBar(), SearchInputBar(), PromoCard(), Headline(),SubHeadline()]),
       ),
     );
   }
@@ -237,6 +241,61 @@ class PromoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(padding: EdgeInsets.all(25),child: Container(width: MediaQuery.of(context).size.width,height: 150,decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),gradient: LinearGradient(colors: [Color.fromARGB(255, 52, 120, 78),kPrimaryColor])),child: Stack(children: [Opacity(opacity: .5,child: Image.network("https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/BACKGROUND%202.png?alt=media&token=0d003860-ba2f-4782-a5ee-5d5684cdc244",fit: BoxFit.cover,),),Image.network("https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Image.png?alt=media&token=8256c357-cf86-4f76-8c4d-4322d1ebc06c"),Align(alignment: Alignment.topRight,child: Padding(padding: EdgeInsets.all(defaultPadding*1.5),child: Text("Want some\nicecream?",style: mTextStyle22(txtColor: Colors.white,fontWeight: FontWeight.bold),),),)],),),);
+    return Padding(
+      padding: EdgeInsets.all(25), child: Container(width: MediaQuery
+        .of(context)
+        .size
+        .width,
+      height: 150,
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),
+          gradient: LinearGradient(
+              colors: [Color.fromARGB(255, 52, 120, 78), kPrimaryColor])),
+      child: Stack(children: [
+        Opacity(opacity: .5,
+          child: Image.network(
+            "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/BACKGROUND%202.png?alt=media&token=0d003860-ba2f-4782-a5ee-5d5684cdc244",
+            fit: BoxFit.cover,),),
+        Image.network(
+            "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Image.png?alt=media&token=8256c357-cf86-4f76-8c4d-4322d1ebc06c"),
+        Align(alignment: Alignment.topRight,
+          child: Padding(padding: EdgeInsets.all(defaultPadding * 1.5),
+            child: Text("Want some\nicecream?", style: mTextStyle22(
+                txtColor: Colors.white, fontWeight: FontWeight.bold),),),)
+      ],),),);
   }
-} // 36:30
+}
+
+
+class Headline extends StatelessWidget {
+  const Headline({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: defaultPadding * 1.5),
+      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Column(
+            children: [
+              Text("Nearest Restaurants",
+                style: mTextStyle20(fontWeight: FontWeight.w700),),
+              Text("The best food close to you", style: mTextStyle16(
+                  txtColor: Colors.grey.shade700, fontWeight: FontWeight.w500),)
+            ],
+          ),
+          Text("View All", style: mTextStyle16(
+              txtColor: kPrimaryColor, fontWeight: FontWeight.w600),)
+        ],),);
+  }
+}
+
+class SubHeadline extends StatelessWidget {
+  const SubHeadline({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: EdgeInsets.only(left: defaultPadding * 1.5,right: defaultPadding *1.5,top: defaultPadding),child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,crossAxisAlignment: CrossAxisAlignment.center, children: [Column(mainAxisAlignment: MainAxisAlignment.start,crossAxisAlignment: CrossAxisAlignment.start, children: [Text("Popular Menu",style: mTextStyle20(fontWeight: FontWeight.w700),),Text("The best food for you",style: mTextStyle16(txtColor: Colors.grey.shade700,fontWeight: FontWeight.w500),),],),Text("View More",style: mTextStyle16(txtColor: kPrimaryColor,fontWeight: FontWeight.w500),)],),);
+  }
+} // 42:30 part 2
