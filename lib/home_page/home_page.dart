@@ -414,8 +414,44 @@ class Card extends StatelessWidget {
       child: Container(
         width: 150,
         height: 150,
-        decoration: BoxDecoration(boxShadow: [BoxShadow()]),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              offset: Offset(12, 26),
+              spreadRadius: 0,
+              blurRadius: 20,
+              color: Colors.grey.shade100,
+            ),
+          ],
+        ),
+        child: Column(
+          children: [
+            Image.network(
+              imgUrl,
+              height: 70,
+              fit: BoxFit.cover,
+              frameBuilder: (
+                BuildContext context,
+                Widget child,
+                int? frame,
+                bool? wasSynchronouslyLoaded,
+              ) {
+                if (wasSynchronouslyLoaded!) {
+                  return child;
+                } else {
+                  return AnimatedOpacity(
+                    opacity: frame == null ? 0 : 1,
+                    duration: Duration(seconds: 1),
+                    curve: Curves.easeOut,
+                  );
+                }
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
-}// 45:00 part 2
+} // 49:40 part 2
