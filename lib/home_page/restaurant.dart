@@ -58,11 +58,25 @@ Widget restaurantAvailable(BuildContext context) {
         Expanded(
           child: ListView.builder(
             itemBuilder: (context, index) {
-              return Placeholder();
+              return itemBuilder(size, context, index);
             },
           ),
         ),
       ],
     ),
   );
-} // 17:12 part 3
+}
+
+Widget itemBuilder(Size size, BuildContext context, int index) {
+  return Padding(
+    padding: EdgeInsets.symmetric(vertical: 10, horizontal: defaultPadding),
+    child: GestureDetector(
+      onTap: () {},
+      child: Material(
+        elevation: 3,
+        borderRadius: BorderRadius.circular(defaultPadding),
+        child: Container(),
+      ),
+    ),
+  );
+} // 19:30 part 3
