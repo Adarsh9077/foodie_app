@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodie/home_page/restaurant.dart';
 import 'package:foodie/ui_helper/utils.dart';
 import 'package:foodie/widgets/constants.dart';
 
@@ -12,7 +13,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _pages = [
     MainHomePage(),
-    MainHomePage(),
+    Restaurant(),
     MainHomePage(),
     MainHomePage(),
   ];

@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:foodie/ui_helper/utils.dart';
+import 'package:foodie/widgets/constants.dart';
 
 class Restaurant extends StatelessWidget {
   const Restaurant({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Placeholder();
+    return Scaffold(body: restaurantAvailable(context));
   }
 }
 
 Widget restaurantAvailable(BuildContext context) {
   Size size = MediaQuery.of(context).size;
   return Container(
+    padding: EdgeInsets.only(top: defaultPadding * 3.25),
     width: size.width,
     height: size.height,
     decoration: BoxDecoration(
@@ -30,5 +33,36 @@ Widget restaurantAvailable(BuildContext context) {
         ],
       ),
     ),
+    child: Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(
+            top: defaultPadding,
+            left: defaultPadding * 1.5,
+            right: defaultPadding * 1.5,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Restaurants Near You",
+                style: mTextStyle26(
+                  txtColor: Colors.white,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              Icon(Icons.search, color: Colors.white),
+            ],
+          ),
+        ),
+        Expanded(
+          child: ListView.builder(
+            itemBuilder: (context, index) {
+              return Placeholder();
+            },
+          ),
+        ),
+      ],
+    ),
   );
-} // 10:40 part 3
+} // 17:12 part 3
