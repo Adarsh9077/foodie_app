@@ -57,6 +57,7 @@ Widget restaurantAvailable(BuildContext context) {
         ),
         Expanded(
           child: ListView.builder(
+            itemCount: restaurantList.length,
             itemBuilder: (context, index) {
               return itemBuilder(size, context, index);
             },
@@ -69,14 +70,69 @@ Widget restaurantAvailable(BuildContext context) {
 
 Widget itemBuilder(Size size, BuildContext context, int index) {
   return Padding(
-    padding: EdgeInsets.symmetric(vertical: 10, horizontal: defaultPadding),
+    padding: EdgeInsets.symmetric(
+      vertical: 10,
+      horizontal: defaultPadding * 1.5,
+    ),
     child: GestureDetector(
       onTap: () {},
       child: Material(
         elevation: 3,
         borderRadius: BorderRadius.circular(defaultPadding),
-        child: Container(),
+        child: SizedBox(
+          width: size.width / 1.1,
+          height: size.height / 2.5,
+          child: Column(
+            children: [
+              Container(
+                height: size.height / 4,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(defaultPadding),
+                    topRight: Radius.circular(defaultPadding),
+                  ),
+                  image: DecorationImage(
+                    image: NetworkImage(restaurantList[index].imageUrl),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              Container(
+                width: size.width / 1.2,
+                height: size.height / 15,
+                padding: EdgeInsets.symmetric(horizontal: 5),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      restaurantList[index].title.toString(),
+                      style: mTextStyle20(fontWeight: FontWeight.w500),
+                    ),
+                    Container(
+                      height: size.height / 25,
+                      width: size.width / 7,
+                      decoration: BoxDecoration(
+                        color: Colors.green,
+                        borderRadius: BorderRadius.circular(defaultPadding),
+                      ),
+                      alignment: Alignment.center,
+                      child: Text(
+                        restaurantList[index].rating.toString(),
+                        style: mTextStyle18(
+                          txtColor: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(   width: size.width / 1.2,padding: EdgeInsets.symmetric(horizontal: 5),child: Row(children: [Text(restaurantList[index].locations.toString(),style: mTextStyle14(txtColor: Colors.black),)],),)
+            ],
+          ),
+        ),
       ),
     ),
   );
-} // 19:30 part 3
+} // 29:15 part 3
