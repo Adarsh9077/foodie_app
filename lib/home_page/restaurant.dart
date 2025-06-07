@@ -114,7 +114,9 @@ Widget itemBuilder(Size size, BuildContext context, int index) {
                       width: size.width / 7,
                       decoration: BoxDecoration(
                         color: Colors.green,
-                        borderRadius: BorderRadius.circular(defaultPadding),
+                        borderRadius: BorderRadius.circular(
+                          defaultPadding * 0.6,
+                        ),
                       ),
                       alignment: Alignment.center,
                       child: Text(
@@ -128,11 +130,27 @@ Widget itemBuilder(Size size, BuildContext context, int index) {
                   ],
                 ),
               ),
-              Container(   width: size.width / 1.2,padding: EdgeInsets.symmetric(horizontal: 5),child: Row(children: [Text(restaurantList[index].locations.toString(),style: mTextStyle14(txtColor: Colors.black),)],),)
+              Container(
+                width: size.width / 1.2,
+                padding: EdgeInsets.symmetric(horizontal: 8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      restaurantList[index].locations.toString(),
+                      style: mTextStyle14(txtColor: Colors.black),
+                    ),
+                    Text(
+                      "${restaurantList[index].price} for one",
+                      style: mTextStyle14(fontWeight: FontWeight.w400),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
       ),
     ),
   );
-} // 29:15 part 3
+}

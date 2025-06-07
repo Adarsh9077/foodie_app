@@ -24,57 +24,55 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: _pages.elementAt(_currIndex),
       bottomNavigationBar: BottomAppBar(
+        height: 78,
+        padding: EdgeInsets.symmetric(vertical: 5),
         color: Colors.white,
-        child: SizedBox(
-          height: 16,
-          width: MediaQuery.of(context).size.width,
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 25),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconBottomBar(
-                  text: "Home",
-                  icon: Icons.home,
-                  isSelected: _currIndex == 0,
-                  onTap: () {
-                    setState(() {
-                      _currIndex = 0;
-                    });
-                  },
-                ),
-                IconBottomBar(
-                  text: "Restaurant",
-                  icon: Icons.restaurant,
-                  isSelected: _currIndex == 1,
-                  onTap: () {
-                    setState(() {
-                      _currIndex = 1;
-                    });
-                  },
-                ),
-                IconBottomBar(
-                  text: "Map",
-                  icon: Icons.map,
-                  isSelected: _currIndex == 2,
-                  onTap: () {
-                    setState(() {
-                      _currIndex = 2;
-                    });
-                  },
-                ),
-                IconBottomBar(
-                  text: "Profile",
-                  icon: Icons.person_rounded,
-                  isSelected: _currIndex == 3,
-                  onTap: () {
-                    setState(() {
-                      _currIndex = 3;
-                    });
-                  },
-                ),
-              ],
-            ),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 35, vertical: 0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              IconBottomBar(
+                text: "Home",
+                icon: Icons.home,
+                isSelected: _currIndex == 0,
+                onTap: () {
+                  setState(() {
+                    _currIndex = 0;
+                  });
+                },
+              ),
+              IconBottomBar(
+                text: "Restaurant",
+                icon: Icons.restaurant,
+                isSelected: _currIndex == 1,
+                onTap: () {
+                  setState(() {
+                    _currIndex = 1;
+                  });
+                },
+              ),
+              IconBottomBar(
+                text: "Map",
+                icon: Icons.map,
+                isSelected: _currIndex == 2,
+                onTap: () {
+                  setState(() {
+                    _currIndex = 2;
+                  });
+                },
+              ),
+              IconBottomBar(
+                text: "Profile",
+                icon: Icons.person_rounded,
+                isSelected: _currIndex == 3,
+                onTap: () {
+                  setState(() {
+                    _currIndex = 3;
+                  });
+                },
+              ),
+            ],
           ),
         ),
       ),
@@ -146,8 +144,9 @@ class IconBottomBar extends StatelessWidget {
         ),
         Text(
           text,
-          style: mTextStyle14(
-            txtColor: isSelected ? kPrimaryColor : Colors.grey,
+          style: TextStyle(
+            color: isSelected ? kPrimaryColor : Colors.grey,
+            fontSize: 14,
           ),
         ),
       ],
@@ -393,21 +392,29 @@ class CardListView extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           children: [
             Card(
-                text: "Vegan",
-                imgUrl:"https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Resturant%20Image%20(1).png?alt=media&token=461162b1-686b-4b0e-a3ee-fae1cb8b5b33",
-                subTitle: "8 min away"),
+              text: "Vegan",
+              imgUrl:
+                  "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Resturant%20Image%20(1).png?alt=media&token=461162b1-686b-4b0e-a3ee-fae1cb8b5b33",
+              subTitle: "8 min away",
+            ),
             Card(
-                text: "Italian ",
-                imgUrl: "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Restaurant%20Image.png?alt=media&token=43509b4c-269e-4279-8c88-36dc9ed27a66",
-                subTitle: "12 min away"),
+              text: "Italian ",
+              imgUrl:
+                  "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Restaurant%20Image.png?alt=media&token=43509b4c-269e-4279-8c88-36dc9ed27a66",
+              subTitle: "12 min away",
+            ),
             Card(
-               text:  "South Indian",
-               imgUrl: "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Resturant%20Image%20(1).png?alt=media&token=461162b1-686b-4b0e-a3ee-fae1cb8b5b33",
-               subTitle:  "15 min away"),
+              text: "South Indian",
+              imgUrl:
+                  "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Resturant%20Image%20(1).png?alt=media&token=461162b1-686b-4b0e-a3ee-fae1cb8b5b33",
+              subTitle: "15 min away",
+            ),
             Card(
-                text:  "Punjabi",
-                imgUrl: "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Resturant%20Image%20(1).png?alt=media&token=461162b1-686b-4b0e-a3ee-fae1cb8b5b33",
-                subTitle:  "15 min away"),
+              text: "Punjabi",
+              imgUrl:
+                  "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Resturant%20Image%20(1).png?alt=media&token=461162b1-686b-4b0e-a3ee-fae1cb8b5b33",
+              subTitle: "15 min away",
+            ),
           ],
         ),
       ),
@@ -486,4 +493,4 @@ class Card extends StatelessWidget {
       ),
     );
   }
-} // 49:40 part 2
+} // 37:00 part 3

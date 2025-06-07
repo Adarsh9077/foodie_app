@@ -21,6 +21,85 @@ class Restaurants {
   });
 }
 
+class FoodItems {
+  String imageUrl, name;
+
+  FoodItems({required this.imageUrl, required this.name});
+}
+
+List<FoodItems> foodItemList = [
+  FoodItems(
+    name: "Healthy",
+    imageUrl:
+        "https://previews.123rf.com/images/firstblood/firstblood1506/firstblood150600075/40973395-transparent-glass-bowl-with-greek-salad-isolated-on-white-background-top-view.jpg",
+  ),
+  FoodItems(
+    name: "Pizza",
+    imageUrl:
+        "https://www.pikpng.com/pngl/m/327-3271979_half-a-pizza-transparent-background-clipart.png",
+  ),
+  FoodItems(
+    name: "Burger",
+    imageUrl:
+        "https://www.pikpng.com/pngl/m/41-418681_free-png-download-burger-png-pics-png-images.png",
+  ),
+  FoodItems(
+    name: "Rolls",
+    imageUrl:
+        "https://icon2.cleanpng.com/20180715/yqy/kisspng-egg-roll-spring-roll-popiah-dim-sum-ch-gi-samosa-5b4bc356ab3951.3897352315316918627013.jpg",
+  ),
+  FoodItems(
+    name: "Biryani",
+    imageUrl:
+        "https://icon2.cleanpng.com/20180330/axe/kisspng-hyderabadi-biryani-indian-cuisine-dish-chicken-mea-biryani-5abedc42d00da9.6620510115224576668522.jpg",
+  ),
+  FoodItems(
+    name: "Paneer",
+    imageUrl:
+        "https://icon2.cleanpng.com/20180331/wxq/kisspng-mattar-paneer-indian-cuisine-shahi-paneer-palak-pa-indian-food-5abf1505113f64.7556672415224721970707.jpg",
+  ),
+  FoodItems(
+    name: "Chicken",
+    imageUrl:
+        "https://toppng.com/uploads/preview/fried-chicken-115400746154bqe3zcl5t.png",
+  ),
+  FoodItems(
+    name: "Healthy",
+    imageUrl:
+        "https://previews.123rf.com/images/firstblood/firstblood1506/firstblood150600075/40973395-transparent-glass-bowl-with-greek-salad-isolated-on-white-background-top-view.jpg",
+  ),
+  FoodItems(
+    name: "Pizza",
+    imageUrl:
+        "https://www.pikpng.com/pngl/m/327-3271979_half-a-pizza-transparent-background-clipart.png",
+  ),
+  FoodItems(
+    name: "Burger",
+    imageUrl:
+        "https://www.pikpng.com/pngl/m/41-418681_free-png-download-burger-png-pics-png-images.png",
+  ),
+  FoodItems(
+    name: "Rolls",
+    imageUrl:
+        "https://icon2.cleanpng.com/20180715/yqy/kisspng-egg-roll-spring-roll-popiah-dim-sum-ch-gi-samosa-5b4bc356ab3951.3897352315316918627013.jpg",
+  ),
+  FoodItems(
+    name: "Biryani",
+    imageUrl:
+        "https://icon2.cleanpng.com/20180330/axe/kisspng-hyderabadi-biryani-indian-cuisine-dish-chicken-mea-biryani-5abedc42d00da9.6620510115224576668522.jpg",
+  ),
+  FoodItems(
+    name: "Paneer",
+    imageUrl:
+        "https://icon2.cleanpng.com/20180331/wxq/kisspng-mattar-paneer-indian-cuisine-shahi-paneer-palak-pa-indian-food-5abf1505113f64.7556672415224721970707.jpg",
+  ),
+  FoodItems(
+    name: "Chicken",
+    imageUrl:
+        "https://toppng.com/uploads/preview/fried-chicken-115400746154bqe3zcl5t.png",
+  ),
+];
+
 List<Restaurants> restaurantList = [
   Restaurants(
     title: "Om Sweet & Snacks",
