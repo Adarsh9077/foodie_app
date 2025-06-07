@@ -112,7 +112,8 @@ class MainHomePage extends StatelessWidget {
             Headline(),
             CardListView(),
             SubHeadline(),
-            CardListView(),
+            // CardListView(),
+            MenuListView(),
           ],
         ),
       ),
@@ -374,6 +375,58 @@ class SubHeadline extends StatelessWidget {
   }
 }
 
+
+
+class MenuListView extends StatelessWidget {
+  const MenuListView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(
+        left: defaultPadding * 1.5,
+        right: defaultPadding * 1.5,
+        top: defaultPadding * 1.5,
+      ),
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        height: 175,
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          children: [
+            Card(
+              text: "Biryani",
+              imgUrl:
+              "https://icon2.cleanpng.com/20180330/axe/kisspng-hyderabadi-biryani-indian-cuisine-dish-chicken-mea-biryani-5abedc42d00da9.6620510115224576668522.jpg",
+              subTitle: "8 min away",
+            ),
+            Card(
+              text: "Italian ",
+              imgUrl:
+              "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Restaurant%20Image.png?alt=media&token=43509b4c-269e-4279-8c88-36dc9ed27a66",
+              subTitle: "12 min away",
+            ),
+            Card(
+              text: "South Indian",
+              imgUrl:
+              "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Resturant%20Image%20(1).png?alt=media&token=461162b1-686b-4b0e-a3ee-fae1cb8b5b33",
+              subTitle: "15 min away",
+            ),
+            Card(
+              text: "Punjabi",
+              imgUrl:
+              "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Resturant%20Image%20(1).png?alt=media&token=461162b1-686b-4b0e-a3ee-fae1cb8b5b33",
+              subTitle: "15 min away",
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+
 class CardListView extends StatelessWidget {
   const CardListView({super.key});
 
@@ -493,4 +546,4 @@ class Card extends StatelessWidget {
       ),
     );
   }
-} // 37:00 part 3
+} // 40:00 part 3
