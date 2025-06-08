@@ -114,6 +114,23 @@ class MainHomePage extends StatelessWidget {
             SubHeadline(),
             // CardListView(),
             MenuListView(),
+            Container(
+              padding: EdgeInsets.only(left: 6),
+              width: MediaQuery.of(context).size.width / 1.1,
+              child: Text(
+                "Eat What Make you happy",
+                style: mTextStyle20(fontWeight: FontWeight.w500),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.only(
+                top: defaultPadding * 1.5,
+                left: defaultPadding,
+                right: defaultPadding,
+              ),
+              width: double.infinity,
+              height: MediaQuery.of(context).size.height / 3,
+            ),
           ],
         ),
       ),
@@ -375,8 +392,6 @@ class SubHeadline extends StatelessWidget {
   }
 }
 
-
-
 class MenuListView extends StatelessWidget {
   const MenuListView({super.key});
 
@@ -395,27 +410,27 @@ class MenuListView extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           children: [
             Card(
-              text: "Biryani",
+              text: "Chicken",
               imgUrl:
-              "https://icon2.cleanpng.com/20180330/axe/kisspng-hyderabadi-biryani-indian-cuisine-dish-chicken-mea-biryani-5abedc42d00da9.6620510115224576668522.jpg",
+                  "https://toppng.com/uploads/preview/fried-chicken-115400746154bqe3zcl5t.png",
               subTitle: "8 min away",
             ),
             Card(
-              text: "Italian ",
+              text: "Healthy",
               imgUrl:
-              "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Restaurant%20Image.png?alt=media&token=43509b4c-269e-4279-8c88-36dc9ed27a66",
+                  "https://previews.123rf.com/images/firstblood/firstblood1506/firstblood150600075/40973395-transparent-glass-bowl-with-greek-salad-isolated-on-white-background-top-view.jpg",
               subTitle: "12 min away",
             ),
             Card(
-              text: "South Indian",
+              text: "Pizza",
               imgUrl:
-              "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Resturant%20Image%20(1).png?alt=media&token=461162b1-686b-4b0e-a3ee-fae1cb8b5b33",
+                  "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Resturant%20Image%20(1).png?alt=media&token=461162b1-686b-4b0e-a3ee-fae1cb8b5b33",
               subTitle: "15 min away",
             ),
             Card(
               text: "Punjabi",
               imgUrl:
-              "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Resturant%20Image%20(1).png?alt=media&token=461162b1-686b-4b0e-a3ee-fae1cb8b5b33",
+                  "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Resturant%20Image%20(1).png?alt=media&token=461162b1-686b-4b0e-a3ee-fae1cb8b5b33",
               subTitle: "15 min away",
             ),
           ],
@@ -424,8 +439,6 @@ class MenuListView extends StatelessWidget {
     );
   }
 }
-
-
 
 class CardListView extends StatelessWidget {
   const CardListView({super.key});
@@ -546,4 +559,4 @@ class Card extends StatelessWidget {
       ),
     );
   }
-} // 40:00 part 3
+} // 45:30 part 3
