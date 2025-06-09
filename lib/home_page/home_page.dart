@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodie/home_page/profile.dart';
 import 'package:foodie/home_page/restaurant.dart';
 import 'package:foodie/ui_helper/utils.dart';
 import 'package:foodie/widgets/constants.dart';
@@ -15,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
     MainHomePage(),
     Restaurant(),
     MainHomePage(),
-    MainHomePage(),
+    ProfileScreen(),
   ];
   int _currIndex = 0;
 
@@ -116,7 +117,10 @@ class MainHomePage extends StatelessWidget {
             MenuListView(),
             Container(
               padding: EdgeInsets.only(left: 6),
-              width: MediaQuery.of(context).size.width / 1.1,
+              width: MediaQuery
+                  .of(context)
+                  .size
+                  .width / 1.1,
               child: Text(
                 "Eat What Make you happy",
                 style: mTextStyle20(fontWeight: FontWeight.w500),
@@ -129,7 +133,22 @@ class MainHomePage extends StatelessWidget {
                 right: defaultPadding,
               ),
               width: double.infinity,
-              height: MediaQuery.of(context).size.height / 3,
+              height: MediaQuery
+                  .of(context)
+                  .size
+                  .height / 3,
+              child: GridView.builder(
+                itemCount: foodItemList.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 10,
+                ),
+                itemBuilder: (context, index) {
+                  return Card(text: foodItemList[index].name,
+                      imgUrl: foodItemList[index].imageUrl,
+                      subTitle: "20 min away");
+                },
+              ),
             ),
           ],
         ),
@@ -268,7 +287,10 @@ class PromoCard extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(25),
       child: Container(
-        width: MediaQuery.of(context).size.width,
+        width: MediaQuery
+            .of(context)
+            .size
+            .width,
         height: 150,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
@@ -404,7 +426,10 @@ class MenuListView extends StatelessWidget {
         top: defaultPadding * 1.5,
       ),
       child: SizedBox(
-        width: MediaQuery.of(context).size.width,
+        width: MediaQuery
+            .of(context)
+            .size
+            .width,
         height: 175,
         child: ListView(
           scrollDirection: Axis.horizontal,
@@ -412,25 +437,25 @@ class MenuListView extends StatelessWidget {
             Card(
               text: "Chicken",
               imgUrl:
-                  "https://toppng.com/uploads/preview/fried-chicken-115400746154bqe3zcl5t.png",
+              "https://toppng.com/uploads/preview/fried-chicken-115400746154bqe3zcl5t.png",
               subTitle: "8 min away",
             ),
             Card(
               text: "Healthy",
               imgUrl:
-                  "https://previews.123rf.com/images/firstblood/firstblood1506/firstblood150600075/40973395-transparent-glass-bowl-with-greek-salad-isolated-on-white-background-top-view.jpg",
+              "https://previews.123rf.com/images/firstblood/firstblood1506/firstblood150600075/40973395-transparent-glass-bowl-with-greek-salad-isolated-on-white-background-top-view.jpg",
               subTitle: "12 min away",
             ),
             Card(
               text: "Pizza",
               imgUrl:
-                  "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Resturant%20Image%20(1).png?alt=media&token=461162b1-686b-4b0e-a3ee-fae1cb8b5b33",
+              "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Resturant%20Image%20(1).png?alt=media&token=461162b1-686b-4b0e-a3ee-fae1cb8b5b33",
               subTitle: "15 min away",
             ),
             Card(
               text: "Punjabi",
               imgUrl:
-                  "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Resturant%20Image%20(1).png?alt=media&token=461162b1-686b-4b0e-a3ee-fae1cb8b5b33",
+              "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Resturant%20Image%20(1).png?alt=media&token=461162b1-686b-4b0e-a3ee-fae1cb8b5b33",
               subTitle: "15 min away",
             ),
           ],
@@ -452,7 +477,10 @@ class CardListView extends StatelessWidget {
         top: defaultPadding * 1.5,
       ),
       child: SizedBox(
-        width: MediaQuery.of(context).size.width,
+        width: MediaQuery
+            .of(context)
+            .size
+            .width,
         height: 175,
         child: ListView(
           scrollDirection: Axis.horizontal,
@@ -460,25 +488,25 @@ class CardListView extends StatelessWidget {
             Card(
               text: "Vegan",
               imgUrl:
-                  "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Resturant%20Image%20(1).png?alt=media&token=461162b1-686b-4b0e-a3ee-fae1cb8b5b33",
+              "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Resturant%20Image%20(1).png?alt=media&token=461162b1-686b-4b0e-a3ee-fae1cb8b5b33",
               subTitle: "8 min away",
             ),
             Card(
               text: "Italian ",
               imgUrl:
-                  "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Restaurant%20Image.png?alt=media&token=43509b4c-269e-4279-8c88-36dc9ed27a66",
+              "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Restaurant%20Image.png?alt=media&token=43509b4c-269e-4279-8c88-36dc9ed27a66",
               subTitle: "12 min away",
             ),
             Card(
               text: "South Indian",
               imgUrl:
-                  "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Resturant%20Image%20(1).png?alt=media&token=461162b1-686b-4b0e-a3ee-fae1cb8b5b33",
+              "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Resturant%20Image%20(1).png?alt=media&token=461162b1-686b-4b0e-a3ee-fae1cb8b5b33",
               subTitle: "15 min away",
             ),
             Card(
               text: "Punjabi",
               imgUrl:
-                  "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Resturant%20Image%20(1).png?alt=media&token=461162b1-686b-4b0e-a3ee-fae1cb8b5b33",
+              "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/Resturant%20Image%20(1).png?alt=media&token=461162b1-686b-4b0e-a3ee-fae1cb8b5b33",
               subTitle: "15 min away",
             ),
           ],
@@ -528,12 +556,10 @@ class Card extends StatelessWidget {
               imgUrl,
               height: 70,
               fit: BoxFit.cover,
-              frameBuilder: (
-                BuildContext context,
-                Widget child,
-                int? frame,
-                bool? wasSynchronouslyLoaded,
-              ) {
+              frameBuilder: (BuildContext context,
+                  Widget child,
+                  int? frame,
+                  bool? wasSynchronouslyLoaded,) {
                 if (wasSynchronouslyLoaded!) {
                   return child;
                 } else {
