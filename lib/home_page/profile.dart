@@ -93,12 +93,19 @@ class ProfileScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
-
-
                     onPressed: () {},
-                    child: Text("Edit Profile",style: mTextStyle20(txtColor: Colors.white),),
+                    child: Text(
+                      "Edit Profile",
+                      style: mTextStyle20(
+                        txtColor: Colors.white,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
                   ),
                 ),
+                SizedBox(height: 25),
+                Divider(color: Colors.grey[400], thickness: 2),
+                SizedBox(height: 25),
               ],
             ),
           ),
@@ -106,4 +113,26 @@ class ProfileScreen extends StatelessWidget {
       ),
     );
   }
-} // 15:05 part 4
+}
+
+class ProfileMenuWidget extends StatelessWidget {
+  const ProfileMenuWidget({
+    super.key,
+    required this.text,
+    required this.icon,
+    required this.press,
+    required this.color,
+    this.endIcon = true,
+  });
+
+  final String text;
+  final IconData icon;
+  final VoidCallback press;
+  final bool endIcon;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Placeholder();
+  }
+} //21:20 part 4
