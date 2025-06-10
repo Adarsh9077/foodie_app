@@ -106,6 +106,12 @@ class ProfileScreen extends StatelessWidget {
                 SizedBox(height: 25),
                 Divider(color: Colors.grey[400], thickness: 2),
                 SizedBox(height: 25),
+                ProfileMenuWidget(
+                  text: "Settings",
+                  icon: LineAwesomeIcons.cog_solid,
+                  press: () {},
+                  color: kPrimaryColor,
+                ),
               ],
             ),
           ),
@@ -133,6 +139,38 @@ class ProfileMenuWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Placeholder();
+    return ListTile(
+      onTap: press,
+      leading: Container(
+        padding: EdgeInsets.all(10),
+        width: 40,
+        height: 40,
+        decoration: BoxDecoration(
+          color: kPrimaryLightColor,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Icon(icon, color: Theme.of(context).primaryColorDark, size: 20),
+      ),
+      title: Text(
+        text,
+        style: mTextStyle18(txtColor: color, fontWeight: FontWeight.w600),
+      ),
+      trailing:
+          endIcon
+              ? Container(
+                width: 30,
+                height: 30,
+                decoration: BoxDecoration(
+                  color: Colors.grey.withValues(alpha: 10),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Icon(
+                  LineAwesomeIcons.angle_right_solid,
+                  color: Colors.black,
+                  size: 18,
+                ),
+              )
+              : null,
+    );
   }
 } //21:20 part 4
