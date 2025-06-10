@@ -112,6 +112,40 @@ class ProfileScreen extends StatelessWidget {
                   press: () {},
                   color: kPrimaryColor,
                 ),
+                ProfileMenuWidget(
+                  text: "Billing Details",
+                  icon: LineAwesomeIcons.wallet_solid,
+                  press: () {},
+                  color: kPrimaryColor,
+                ),
+                ProfileMenuWidget(
+                  text: "User Management",
+                  icon: LineAwesomeIcons.user_check_solid,
+                  press: () {},
+                  color: kPrimaryColor,
+                ),
+                SizedBox(height: 10),
+                Divider(color: Colors.grey[400], thickness: 0.8),
+                SizedBox(height: 12),
+                ProfileMenuWidget(
+                  text: "Help & Support",
+                  icon: LineAwesomeIcons.question_circle,
+                  press: () {},
+                  color: kPrimaryColor,
+                ),
+                ProfileMenuWidget(
+                  text: "Privacy & Policy",
+                  icon: LineAwesomeIcons.lock_solid,
+                  press: () {},
+                  color: kPrimaryColor,
+                ),
+                ProfileMenuWidget(
+                  text: "Logout",
+                  icon: LineAwesomeIcons.sign_out_alt_solid,
+                  press: () {},
+                  color: Colors.red,
+                  endIcon: false,
+                ),
               ],
             ),
           ),
@@ -173,4 +207,4 @@ class ProfileMenuWidget extends StatelessWidget {
               : null,
     );
   }
-} //21:20 part 4
+} //24:55 part 4

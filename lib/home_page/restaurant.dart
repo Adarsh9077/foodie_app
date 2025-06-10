@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodie/home_page/restaurant_details.dart';
 import 'package:foodie/ui_helper/utils.dart';
 import 'package:foodie/widgets/constants.dart';
 
@@ -75,7 +76,14 @@ Widget itemBuilder(Size size, BuildContext context, int index) {
       horizontal: defaultPadding * 1.5,
     ),
     child: GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => RestaurantDetails(index: index),
+          ),
+        );
+      },
       child: Material(
         elevation: 3,
         borderRadius: BorderRadius.circular(defaultPadding),
