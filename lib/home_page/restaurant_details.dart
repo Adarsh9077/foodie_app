@@ -152,4 +152,44 @@ class _TopImageState extends State<TopImage> {
       ),
     );
   }
-} // 53:45
+}
+
+class Rating extends StatelessWidget {
+  final int index;
+
+  const Rating({super.key, required this.index});
+
+  @override
+  Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    return Container(
+      padding: EdgeInsets.only(top: 10, left: 20, right: 20),
+      height: size.height * .1,
+      width: size.width,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                restaurantList[index].rating,
+                style: mTextStyle20(fontWeight: FontWeight.w500),
+              ),
+              Text("Rating", style: mTextStyle14(fontWeight: FontWeight.w500)),
+            ],
+          ),
+          Column(
+            children: [
+              Text(
+                "${restaurantList[index].price} for one",
+                style: mTextStyle16(txtColor: Colors.blueGrey),
+              ),
+              Text("Delivery Time: 30 min"),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+} // 56: 35
