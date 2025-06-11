@@ -111,7 +111,45 @@ class _TopImageState extends State<TopImage> {
           fit: BoxFit.cover,
         ),
       ),
-      child: Stack(children: []),
+      child: Stack(
+        children: [
+          Positioned(
+            top: 20,
+            left: 10,
+            child: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(Icons.arrow_back, size: 28, color: Colors.white),
+            ),
+          ),
+          Positioned(
+            top: 20,
+            right: 10,
+            child: IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.favorite, size: 28, color: kPrimaryColor),
+            ),
+          ),
+          Positioned(
+            bottom: 20,
+            left: 10,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  restaurantList[widget.index].title,
+                  style: mTextStyle22(txtColor: Colors.white),
+                ),
+                Text(
+                  restaurantList[widget.index].locations,
+                  style: mTextStyle18(txtColor: Colors.white),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
-} // 47:00
+} // 53:45
