@@ -44,16 +44,74 @@ class RestaurantDetails extends StatelessWidget {
           ),
         ),
       ),
+      body: MainScreen(index: index),
     );
   }
 }
 
 class MainScreen extends StatelessWidget {
-  const MainScreen({super.key});
+  final int index;
+
+  const MainScreen({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Container();
+    return Container(
+      padding: EdgeInsets.only(top: 50),
+      width: size.width,
+      height: size.height,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Color.fromARGB(255, 83, 69, 164),
+            Color.fromARGB(125, 66, 53, 165),
+            Color.fromARGB(95, 75, 53, 165),
+            Color.fromARGB(95, 121, 112, 159),
+            Color.fromARGB(45, 70, 53, 165),
+            Color(0xff6F35A5).withAlpha(30),
+            Color(0xff6F35A5).withAlpha(25),
+            Color(0xff6F35A5).withAlpha(10),
+          ],
+        ),
+      ),
+      child: SingleChildScrollView(
+        child: Column(children: [TopImage(index: index)]),
+      ),
+    );
   }
-} //40:10
+}
+
+class TopImage extends StatefulWidget {
+  final int index;
+
+  const TopImage({super.key, required this.index});
+
+  @override
+  State<TopImage> createState() => _TopImageState();
+}
+
+class _TopImageState extends State<TopImage> {
+  @override
+  Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    return Container(
+      height: size.height * 0.3,
+      width: size.width * 0.95,
+      decoration: BoxDecoration(
+        color: kPrimaryLightColor,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
+        image: DecorationImage(
+          image: NetworkImage(restaurantList[widget.index].imageUrl),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: Stack(children: []),
+    );
+  }
+} // 47:00
