@@ -78,7 +78,14 @@ class MainScreen extends StatelessWidget {
         ),
       ),
       child: SingleChildScrollView(
-        child: Column(children: [TopImage(index: index)]),
+        child: Column(
+          children: [
+            TopImage(index: index),
+            Rating(index: index),
+            FoodDescription(index: index),
+            MenuItems()
+          ],
+        ),
       ),
     );
   }
@@ -171,6 +178,7 @@ class Rating extends StatelessWidget {
         children: [
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 restaurantList[index].rating,
@@ -180,6 +188,7 @@ class Rating extends StatelessWidget {
             ],
           ),
           Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 "${restaurantList[index].price} for one",
@@ -193,3 +202,87 @@ class Rating extends StatelessWidget {
     );
   }
 } // 56: 35
+
+class FoodDescription extends StatefulWidget {
+  final int index;
+
+  const FoodDescription({super.key, required this.index});
+
+  @override
+  State<FoodDescription> createState() => _FoodDescriptionState();
+}
+
+class _FoodDescriptionState extends State<FoodDescription> {
+  bool _showFullText = false;
+
+  @override
+  Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    return Container(
+      padding: EdgeInsets.only(top: 10, left: 20, right: 20),
+      width: size.width,
+      child: Expanded(
+        child: Column(
+          children: [
+            _showFullText
+                ? Text(
+                  restaurantList[widget.index].description,
+                  style: mTextStyle16(fontWeight: FontWeight.w500),
+                )
+                : Text(
+                  restaurantList[widget.index].description,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: mTextStyle16(fontWeight: FontWeight.w500),
+                ),
+            _buildButton(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildButton() {
+    return TextButton(
+      onPressed: () {
+        setState(() {
+          _showFullText = !_showFullText;
+        });
+      },
+      child: Text(_showFullText ? "Show More" : "Show Less"),
+    );
+  }
+}
+
+class MenuItems extends StatefulWidget {
+  const MenuItems({super.key});
+
+  @override
+  State<MenuItems> createState() => _MenuItemsState();
+}
+
+class _MenuItemsState extends State<MenuItems> {
+  @override
+  Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    return Container(
+      padding: EdgeInsets.only(top: 10, left: 20, right: 20),
+      width: size.width,
+      height: size.height * 0.06,
+      decoration: BoxDecoration(
+        color: Colors.transparent.withAlpha(5),
+        borderRadius: BorderRadius.circular(30),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text("Menu", style: mTextStyle20(fontWeight: FontWeight.w600)),
+          Spacer(),
+          Text("View", style: mTextStyle16(fontWeight: FontWeight.w500)),
+          Icon(Icons.arrow_forward_ios_rounded, size: 15, color: Colors.black),
+        ],
+      ),
+    );
+  }
+}
