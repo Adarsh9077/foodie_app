@@ -113,9 +113,12 @@ Widget itemBuilder(Size size, BuildContext context, int index) {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      restaurantList[index].title.toString(),
-                      style: mTextStyle20(fontWeight: FontWeight.w500),
+                    SizedBox(
+                      // width: size.width * 0.3,
+                      child: Text(
+                        restaurantList[index].title.toString(),
+                        style: mTextStyle20(fontWeight: FontWeight.w500),
+                      ),
                     ),
                     Container(
                       height: size.height / 25,
@@ -144,9 +147,12 @@ Widget itemBuilder(Size size, BuildContext context, int index) {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      restaurantList[index].locations.toString(),
-                      style: mTextStyle14(txtColor: Colors.black),
+                    SizedBox(
+                      width: size.width * 0.45,
+                      child: Text(
+                        restaurantList[index].locations.toString(),
+                        style: mTextStyle14(txtColor: Colors.black),
+                      ),
                     ),
                     Text(
                       "${restaurantList[index].price} for one",
