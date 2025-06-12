@@ -83,7 +83,7 @@ class MainScreen extends StatelessWidget {
             TopImage(index: index),
             Rating(index: index),
             FoodDescription(index: index),
-            MenuItems()
+            MenuItems(index: index),
           ],
         ),
       ),
@@ -255,7 +255,11 @@ class _FoodDescriptionState extends State<FoodDescription> {
 }
 
 class MenuItems extends StatefulWidget {
-  const MenuItems({super.key});
+  final int index;
+
+  MenuItems({required this.index, super.key});
+
+  bool _onClick = false;
 
   @override
   State<MenuItems> createState() => _MenuItemsState();
@@ -265,24 +269,74 @@ class _MenuItemsState extends State<MenuItems> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return Container(
-      padding: EdgeInsets.only(top: 10, left: 20, right: 20),
-      width: size.width,
-      height: size.height * 0.06,
-      decoration: BoxDecoration(
-        color: Colors.transparent.withAlpha(5),
-        borderRadius: BorderRadius.circular(30),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text("Menu", style: mTextStyle20(fontWeight: FontWeight.w600)),
-          Spacer(),
-          Text("View", style: mTextStyle16(fontWeight: FontWeight.w500)),
-          Icon(Icons.arrow_forward_ios_rounded, size: 15, color: Colors.black),
-        ],
-      ),
+    return Column(
+      children: [
+        Container(
+          padding: EdgeInsets.only(top: 10, left: 20, right: 20),
+          width: size.width,
+          height: size.height * 0.06,
+          decoration: BoxDecoration(
+            color: Colors.transparent.withAlpha(5),
+            borderRadius: BorderRadius.circular(30),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text("Menu", style: mTextStyle20(fontWeight: FontWeight.w600)),
+              Spacer(),
+              Text("View", style: mTextStyle16(fontWeight: FontWeight.w500)),
+              Icon(
+                Icons.arrow_forward_ios_rounded,
+                size: 15,
+                color: Colors.black,
+              ),
+            ],
+          ),
+        ),
+        Container(
+          padding: EdgeInsets.only(top: 6, left: 20, right: 20),
+          width: size.width,
+          height: size.height * 0.06,
+          margin: EdgeInsets.only(bottom: 10),
+          decoration: BoxDecoration(
+            color: Colors.transparent.withAlpha(10),
+            borderRadius: BorderRadius.circular(30),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                restaurantsOtherFoodItemsList[widget.index].title,
+                style: mTextStyle18(fontWeight: FontWeight.w500),
+              ),
+              Row(
+                children: [
+                  Text(
+                    restaurantsOtherFoodItemsList[widget.index].price,
+                    style: mTextStyle16(fontWeight: FontWeight.w500),
+                  ),
+                  SizedBox(width: 8),
+                  IconButton(
+                    onPressed: () {
+                      setState(() {
+                        widget._onClick = !widget._onClick;
+                      });
+                    },
+                    icon:
+                        widget._onClick
+                            ? Icon(Icons.check_box_outline_blank)
+                            : Icon(
+                              Icons.check_box_outlined,
+                              color: Colors.green,
+                            ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
-}
+} //27:42 part 5

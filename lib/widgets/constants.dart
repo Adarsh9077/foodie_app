@@ -254,3 +254,20 @@ List<Restaurants> restaurantList = [
         "https://media.self.com/photos/5ebd7a636ed447b59b846244/4:3/w_2560%2Cc_limit/snack-plate.jpg",
   ),
 ];
+
+class RestaurantsOtherFoodItems {
+  String title, price;
+
+  RestaurantsOtherFoodItems({required this.title, required this.price});
+}
+
+List<RestaurantsOtherFoodItems> restaurantsOtherFoodItemsList = [
+  RestaurantsOtherFoodItems(title: "Jalebi", price: "50"),
+  RestaurantsOtherFoodItems(title: "Rasgulla", price: "100"),
+  RestaurantsOtherFoodItems(title: "Rasmalai", price: "100"),
+  RestaurantsOtherFoodItems(title: "Gulab Jamun", price: "70"),
+  RestaurantsOtherFoodItems(title: "Besan Ladoo", price: "160"),
+  RestaurantsOtherFoodItems(title: "Kaju Katli", price: "200"),
+  RestaurantsOtherFoodItems(title: "Rava Ladoo", price: "160"),
+  RestaurantsOtherFoodItems(title: "Moong Dal Halwa", price: "200"),
+];
