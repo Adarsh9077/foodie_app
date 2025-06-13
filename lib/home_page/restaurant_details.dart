@@ -201,7 +201,7 @@ class Rating extends StatelessWidget {
       ),
     );
   }
-} // 56: 35
+}
 
 class FoodDescription extends StatefulWidget {
   final int index;
@@ -259,7 +259,7 @@ class MenuItems extends StatefulWidget {
 
   MenuItems({required this.index, super.key});
 
-  bool _onClick = false;
+  bool _onClick = true;
 
   @override
   State<MenuItems> createState() => _MenuItemsState();
@@ -293,6 +293,18 @@ class _MenuItemsState extends State<MenuItems> {
               ),
             ],
           ),
+        ),
+        ListView.builder(
+          physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: 9,
+          itemBuilder: (context, index) {
+            return Container(
+              padding: EdgeInsets.all(20),
+              decoration: BoxDecoration(color: kPrimaryLightColor),
+              child: Text("Ram $index"),
+            );
+          },
         ),
         Container(
           padding: EdgeInsets.only(top: 6, left: 20, right: 20),
