@@ -259,8 +259,6 @@ class MenuItems extends StatefulWidget {
 
   MenuItems({required this.index, super.key});
 
-  bool _onClick = true;
-
   @override
   State<MenuItems> createState() => _MenuItemsState();
 }
@@ -297,56 +295,48 @@ class _MenuItemsState extends State<MenuItems> {
         ListView.builder(
           physics: NeverScrollableScrollPhysics(),
           shrinkWrap: true,
-          itemCount: 9,
+          itemCount: restaurantsOtherFoodItemsList.length,
           itemBuilder: (context, index) {
+            bool _onClick = true;
             return Container(
-              padding: EdgeInsets.all(20),
-              decoration: BoxDecoration(color: kPrimaryLightColor),
-              child: Text("Ram $index"),
-            );
-          },
-        ),
-        Container(
-          padding: EdgeInsets.only(top: 6, left: 20, right: 20),
-          width: size.width,
-          height: size.height * 0.06,
-          margin: EdgeInsets.only(bottom: 10),
-          decoration: BoxDecoration(
-            color: Colors.transparent.withAlpha(10),
-            borderRadius: BorderRadius.circular(30),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                restaurantsOtherFoodItemsList[widget.index].title,
-                style: mTextStyle18(fontWeight: FontWeight.w500),
+              padding: EdgeInsets.only(top: 6, left: 20, right: 20),
+              width: size.width,
+              height: size.height * 0.06,
+              margin: EdgeInsets.only(bottom: 10),
+              decoration: BoxDecoration(
+                color: Colors.transparent.withAlpha(10),
+                borderRadius: BorderRadius.circular(30),
               ),
-              Row(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    restaurantsOtherFoodItemsList[widget.index].price,
-                    style: mTextStyle16(fontWeight: FontWeight.w500),
+                    restaurantsOtherFoodItemsList[index].title,
+                    style: mTextStyle18(fontWeight: FontWeight.w500),
                   ),
-                  SizedBox(width: 8),
-                  IconButton(
-                    onPressed: () {
-                      setState(() {
-                        widget._onClick = !widget._onClick;
-                      });
-                    },
-                    icon:
-                        widget._onClick
-                            ? Icon(Icons.check_box_outline_blank)
-                            : Icon(
-                              Icons.check_box_outlined,
-                              color: Colors.green,
-                            ),
+                  Row(
+                    children: [
+                      Text(
+                        restaurantsOtherFoodItemsList[index].price,
+                        style: mTextStyle16(fontWeight: FontWeight.w500),
+                      ),
+                      SizedBox(width: 8),
+                      IconButton(
+                        onPressed: () {
+                          setState(() {
+                            _onClick = !_onClick;
+                          });
+                        },
+                        icon:
+                            _onClick
+                                ? Icon(Icons.check_box_outline_blank):Text("data"),
+                      ),
+                    ],
                   ),
                 ],
               ),
-            ],
-          ),
+            );
+          },
         ),
       ],
     );

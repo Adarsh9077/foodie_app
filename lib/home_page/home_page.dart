@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodie/home_page/map_page.dart';
 import 'package:foodie/home_page/profile.dart';
 import 'package:foodie/home_page/restaurant.dart';
 import 'package:foodie/ui_helper/utils.dart';
@@ -15,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _pages = [
     MainHomePage(),
     Restaurant(),
-    MainHomePage(),
+    MapPage(),
     ProfileScreen(),
   ];
   int _currIndex = 0;
