@@ -1,8 +1,17 @@
+plugins {
+    // ...
+
+    // Add the dependency for the Google services Gradle plugin
+    id("com.google.gms.google-services") version "4.4.2" apply false
+
+}
+
 allprojects {
     repositories {
         google()
         mavenCentral()
     }
+//    dependencies { implementation(platform("com.google.firebase:firebase-bom:33.15.0")) }
 }
 
 val newBuildDir: Directory = rootProject.layout.buildDirectory.dir("../../build").get()

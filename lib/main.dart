@@ -1,9 +1,15 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:foodie/ui_helper/utils.dart';
 import 'package:foodie/welcome/welcome_screen.dart';
 import 'package:foodie/widgets/constants.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp();
+
+
   runApp(const MyApp());
 }
 
@@ -43,4 +49,4 @@ class MyApp extends StatelessWidget {
       home: WelcomeScreen(),
     );
   }
-}
+}  //16:20 part 6
