@@ -5,18 +5,58 @@ import 'package:foodie/signup/signup_screen.dart';
 import 'package:foodie/ui_helper/utils.dart';
 import 'package:foodie/welcome/welcome_screen.dart';
 import 'package:foodie/widgets/constants.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class LoginForm extends StatelessWidget {
+class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
 
-  // TextEditingController passwordInput = TextEditingController();
+  @override
+  State<LoginForm> createState() => _LoginFormState();
+}
+
+class _LoginFormState extends State<LoginForm> {
+  final _formKey = GlobalKey<FormState>();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  bool _isLoading = false;
+
+  void _signInWithEmailAndPassword() async {
+    setState(() {
+      _isLoading = true;
+    });
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(
+            email: _emailController.text,
+            password: _passwordController.text,
+          );
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomeScreen()),
+      );
+    } on FirebaseAuthException catch (e) {
+      if (e.code == "user-not-found") {
+        // PrioritizedIntents
+        print("No User Found for that email");
+        //   24:45 part 6
+      } else if (e.code == "wrong-password") {
+        print("Wrong password provider for that user.");
+      }
+    } finally {
+      setState(() {
+        _isLoading = false;
+        });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: _formKey,
       child: Column(
         children: [
           TextField(
+            controller: _emailController,
             keyboardType: TextInputType.emailAddress,
             textInputAction: TextInputAction.next,
             cursorColor: kPrimaryColor,
@@ -36,7 +76,7 @@ class LoginForm extends StatelessWidget {
               obscuringCharacter: "*",
               cursorColor: kPrimaryColor,
               textInputAction: TextInputAction.done,
-              // controller: passwordInput,
+              controller: _passwordController,
               decoration: InputDecoration(
                 hintText: "Your Password",
                 prefixIcon: Padding(
