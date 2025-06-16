@@ -45,7 +45,14 @@ class _LoginFormState extends State<LoginForm> {
     } finally {
       setState(() {
         _isLoading = false;
-        });
+      });
+    }
+
+    @override
+    void dispose() {
+      _emailController.dispose();
+      _passwordController.dispose();
+      super.dispose();
     }
   }
 
@@ -55,12 +62,20 @@ class _LoginFormState extends State<LoginForm> {
       key: _formKey,
       child: Column(
         children: [
-          TextField(
+          TextFormField(
             controller: _emailController,
             keyboardType: TextInputType.emailAddress,
             textInputAction: TextInputAction.next,
             cursorColor: kPrimaryColor,
-            onSubmitted: (email) {},
+            onSaved: (email) {
+              print(" press onSubmit Btn");
+            },
+            validator: (value) {
+              if (value!.isEmpty) {
+                return "Please enter your email";
+              }
+              return null;
+            },
             decoration: InputDecoration(
               hintText: 'Email ID',
               prefixIcon: Padding(
@@ -71,12 +86,18 @@ class _LoginFormState extends State<LoginForm> {
           ),
           Padding(
             padding: EdgeInsets.symmetric(vertical: defaultPadding),
-            child: TextField(
+            child: TextFormField(
               obscureText: true,
               obscuringCharacter: "*",
               cursorColor: kPrimaryColor,
               textInputAction: TextInputAction.done,
               controller: _passwordController,
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return "Please enter your Password";
+                }
+                return null;
+              },
               decoration: InputDecoration(
                 hintText: "Your Password",
                 prefixIcon: Padding(
@@ -91,24 +112,25 @@ class _LoginFormState extends State<LoginForm> {
             ),
           ),
           SizedBox(height: defaultPadding),
-          Hero(
-            tag: "login_btn",
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => HomeScreen()),
-                );
-              },
-              child: Text(
-                "Login".toUpperCase(),
-                style: mTextStyle20(
-                  txtColor: Colors.white,
-                  fontWeight: FontWeight.w800,
+          _isLoading
+              ? CircularProgressIndicator()
+              : Hero(
+                tag: "login_btn",
+                child: ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      _signInWithEmailAndPassword();
+                    }
+                  },
+                  child: Text(
+                    "Login".toUpperCase(),
+                    style: mTextStyle20(
+                      txtColor: Colors.white,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ),
           SizedBox(height: defaultPadding),
           AlreadyHaveAnAccountCheck(
             login: true,
@@ -123,4 +145,4 @@ class _LoginFormState extends State<LoginForm> {
       ),
     );
   }
-}
+} // 27:55 part 6
