@@ -3,7 +3,6 @@ import 'package:foodie/components/already_have_an_account_acheck.dart';
 import 'package:foodie/home_page/home_page.dart';
 import 'package:foodie/signup/signup_screen.dart';
 import 'package:foodie/ui_helper/utils.dart';
-import 'package:foodie/welcome/welcome_screen.dart';
 import 'package:foodie/widgets/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -38,7 +37,6 @@ class _LoginFormState extends State<LoginForm> {
       if (e.code == "user-not-found") {
         // PrioritizedIntents
         print("No User Found for that email");
-        //   24:45 part 6
       } else if (e.code == "wrong-password") {
         print("Wrong password provider for that user.");
       }
@@ -145,4 +143,4 @@ class _LoginFormState extends State<LoginForm> {
       ),
     );
   }
-} // 27:55 part 6
+} // 43:40 part 6

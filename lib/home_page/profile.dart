@@ -2,6 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:foodie/ui_helper/utils.dart';
 import 'package:foodie/widgets/constants.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+final FirebaseAuth _auth = FirebaseAuth.instance;
+
+String? getUserEmail() {
+  final User? user = _auth.currentUser;
+  if (user != null) {
+    return user.email;
+  }
+  return null;
+}
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -77,7 +88,7 @@ class ProfileScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 5),
                 Text(
-                  "adarsh08janus.com",
+                  getUserEmail().toString(),
                   style: mTextStyle16(
                     txtColor: Colors.grey.shade800,
                     fontWeight: FontWeight.w500,
@@ -142,7 +153,10 @@ class ProfileScreen extends StatelessWidget {
                 ProfileMenuWidget(
                   text: "Logout",
                   icon: LineAwesomeIcons.sign_out_alt_solid,
-                  press: () {},
+                  press: () {
+                    _auth.signOut();
+                    Navigator.pop(context);
+                  },
                   color: Colors.red,
                   endIcon: false,
                 ),
