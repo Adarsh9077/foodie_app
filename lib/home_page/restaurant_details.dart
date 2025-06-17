@@ -256,7 +256,6 @@ class _FoodDescriptionState extends State<FoodDescription> {
 
 class MenuItems extends StatefulWidget {
   final int index;
-  late List<bool> _onClick;
 
   MenuItems({required this.index, super.key});
 
@@ -265,6 +264,14 @@ class MenuItems extends StatefulWidget {
 }
 
 class _MenuItemsState extends State<MenuItems> {
+  late List<bool> _onClick;
+
+  @override
+  void initState() {
+    super.initState();
+    _onClick = List.generate(3, (index) => false);
+  }
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -293,48 +300,67 @@ class _MenuItemsState extends State<MenuItems> {
             ],
           ),
         ),
-        ListView.builder(
-          physics: NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-          itemCount: restaurantsOtherFoodItemsList.length,
-          itemBuilder: (context, index) {
-            return Container(
-              padding: EdgeInsets.only(top: 6, left: 20, right: 20),
-              width: size.width,
-              height: size.height * 0.06,
-              margin: EdgeInsets.only(bottom: 10),
-              decoration: BoxDecoration(
-                color: Colors.transparent.withAlpha(10),
-                borderRadius: BorderRadius.circular(30),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    restaurantsOtherFoodItemsList[index].title,
-                    style: mTextStyle18(fontWeight: FontWeight.w500),
+        for (int i = 0; i < 5; i++)
+          Container(
+            padding: const EdgeInsets.only(top: 6, left: 25, right: 25),
+            height: size.height * 0.06,
+            width: size.width,
+            margin: const EdgeInsets.only(bottom: 10),
+            decoration: BoxDecoration(
+              color: Colors.transparent.withAlpha(10),
+              borderRadius: const BorderRadius.all(Radius.circular(50)),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  restaurantList[i].title,
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
                   ),
-                  Row(
-                    children: [
-                      Text(
-                        restaurantsOtherFoodItemsList[index].price,
-                        style: mTextStyle16(fontWeight: FontWeight.w500),
+                ),
+                Row(
+                  children: [
+                    Text(
+                      restaurantList[i].price,
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
                       ),
-                      SizedBox(width: 8),
-                      IconButton(
-                        onPressed: () {
-                          setState(() {});
-                        },
-                        icon: Icon(Icons.check_box_outline_blank),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            );
-          },
-        ),
+                    ),
+                    const SizedBox(width: 10),
+                    IconButton(
+                      onPressed: () {
+                        setState(() {
+                          _onClick[i] = !_onClick[i];
+                        });
+                        if (_onClick[i]) {
+                          // Add the item to the cart when the checkbox is checked
+                          // widget.addToCart(restaurantList1[i]);
+                        }
+                      },
+                      icon:
+                          _onClick[i]
+                              ? const Icon(
+                                Icons.check_box_outlined,
+                                color: Colors.green,
+                              )
+                              : const Icon(
+                                Icons.check_box_outline_blank,
+                                color: Colors.black,
+                              ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
       ],
     );
   }
-} // 58:10 part 6
+}
+
+// 58:10 part 6
