@@ -256,6 +256,7 @@ class _FoodDescriptionState extends State<FoodDescription> {
 
 class MenuItems extends StatefulWidget {
   final int index;
+  late List<bool> _onClick;
 
   MenuItems({required this.index, super.key});
 
@@ -297,7 +298,6 @@ class _MenuItemsState extends State<MenuItems> {
           shrinkWrap: true,
           itemCount: restaurantsOtherFoodItemsList.length,
           itemBuilder: (context, index) {
-            bool _onClick = true;
             return Container(
               padding: EdgeInsets.only(top: 6, left: 20, right: 20),
               width: size.width,
@@ -323,13 +323,9 @@ class _MenuItemsState extends State<MenuItems> {
                       SizedBox(width: 8),
                       IconButton(
                         onPressed: () {
-                          setState(() {
-                            _onClick = !_onClick;
-                          });
+                          setState(() {});
                         },
-                        icon:
-                            _onClick
-                                ? Icon(Icons.check_box_outline_blank):Text("data"),
+                        icon: Icon(Icons.check_box_outline_blank),
                       ),
                     ],
                   ),
@@ -341,4 +337,4 @@ class _MenuItemsState extends State<MenuItems> {
       ],
     );
   }
-} //27:42 part 5
+} // 58:10 part 6
