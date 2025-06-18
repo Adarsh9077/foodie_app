@@ -586,4 +586,4 @@ class Card extends StatelessWidget {
       ),
     );
   }
-} // 45:30 part 3
+}

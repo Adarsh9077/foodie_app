@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:foodie/home_page/home_page.dart';
 import 'package:foodie/ui_helper/utils.dart';
 import 'package:foodie/widgets/constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});
@@ -22,12 +23,15 @@ class _SignUpFormState extends State<SignUpForm> {
     setState(() {
       _isLoading = true;
     });
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
     try {
       UserCredential userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(
             email: _emailController.text,
             password: _passwordController.text,
           );
+      await prefs.setBool("isLogin", true);
+      await prefs.setString("userId", _emailController.text);
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => HomeScreen()),

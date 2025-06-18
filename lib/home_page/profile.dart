@@ -3,15 +3,21 @@ import 'package:foodie/ui_helper/utils.dart';
 import 'package:foodie/widgets/constants.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
+// Future String
+
 String? getUserEmail() {
   final User? user = _auth.currentUser;
+  // final SharedPreferences prefs = await SharedPreferences.getInstance();
+  // final bool? isLogin = prefs.getBool("isLogin");
+  // final String? userId = prefs.getString("userId");
   if (user != null) {
-    return user.email;
+    return user.email.toString();
   }
-  return null;
+  return "";
 }
 
 class ProfileScreen extends StatelessWidget {
@@ -221,4 +227,4 @@ class ProfileMenuWidget extends StatelessWidget {
               : null,
     );
   }
-} //24:55 part 4
+}

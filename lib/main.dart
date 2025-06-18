@@ -49,4 +49,4 @@ class MyApp extends StatelessWidget {
       home: WelcomeScreen(),
     );
   }
-}  //16:20 part 6
+}
